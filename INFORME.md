@@ -162,3 +162,15 @@ Reproducción fallida: 0 de 3 salidas coinciden.
 ```
 
 **Explicación:** Al cambiar numpy==2.1.3 por numpy>=2.1, pip instala la versión más reciente disponible en el momento de construir. Hoy podría coincidir con 2.1.3 y las huellas salir idénticas, pero eso no está garantizado: en unos meses pip podría instalar 2.5 y las huellas diferirían. La versión fijada con == es lo que hace la reproducibilidad independiente del tiempo.
+---
+
+## Parte 4 · Semilla del proyecto
+
+**Idea elegida:** <Desempleo por ciudad en Colombia>
+
+**Enlace al README del proyecto:** https://github.com/fahmitoledo234-png/lab05-reproducibilidad/blob/main/proyecto/README.md
+
+**Evidencia de la construcción:**
+
+```
+```
