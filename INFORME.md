@@ -1,0 +1,61 @@
+# Taller Unidad 6 · Contenedores y reproducibilidad
+
+**Estudiante:** Fahmit Toledo
+**Repositorio:** https://github.com/fahmitoledo234-png/lab05-reproducibilidad
+
+---
+
+## Parte 1 · Reproducir
+
+**Evidencia:** salida de `./reproducir.sh` y `docker images lab05-viajes`.
+
+```
+== Construcción de la imagen lab05-viajes:1.0 ==
+
+== Corrida A ==
+== Etapa 1. Generación de datos (50000 filas) ==
+Filas generadas : 50000
+Archivo         : datos/viajes.csv
+SHA-256         : 5ddad64f85e081307de1dad5a52e10a40422c12749954716f607f3c6d15bc19e
+
+== Etapa 2. Análisis y persistencia de salidas ==
+      ciudad  n_viajes  distancia_media_km  duracion_media_min  tarifa_media_cop  tarifa_p50_cop
+Barranquilla      6088                5.98               17.97          16419.30         14450.0
+      Bogota     22462                5.99               18.00          16448.88         14339.0
+ Bucaramanga      4055                5.94               17.79          16322.11         14270.0
+        Cali      7445                5.90               17.70          16250.58         14180.0
+    Medellin      9950                5.97               17.86          16396.02         14171.0
+
+154b62824a5a7f02e37a5e7a0a93e46ddd0237f2d88a57a8048800650b15a59a  resumen_ciudad.parquet
+0c598115bb5676dd920eb4ada9a1be22dc6509f79aad616d795a65e337bfbb4b  resumen_ciudad.csv
+568842db5a3964bdf2714a947311d127a9e35722593c2f12cba9b2ced58e74b2  tarifa_media_ciudad.png
+
+== Corrida B ==
+== Etapa 1. Generación de datos (50000 filas) ==
+Filas generadas : 50000
+Archivo         : datos/viajes.csv
+SHA-256         : 5ddad64f85e081307de1dad5a52e10a40422c12749954716f607f3c6d15bc19e
+
+== Etapa 2. Análisis y persistencia de salidas ==
+      ciudad  n_viajes  distancia_media_km  duracion_media_min  tarifa_media_cop  tarifa_p50_cop
+Barranquilla      6088                5.98               17.97          16419.30         14450.0
+      Bogota     22462                5.99               18.00          16448.88         14339.0
+ Bucaramanga      4055                5.94               17.79          16322.11         14270.0
+        Cali      7445                5.90               17.70          16250.58         14180.0
+    Medellin      9950                5.97               17.86          16396.02         14171.0
+
+154b62824a5a7f02e37a5e7a0a93e46ddd0237f2d88a57a8048800650b15a59a  resumen_ciudad.parquet
+0c598115bb5676dd920eb4ada9a1be22dc6509f79aad616d795a65e337bfbb4b  resumen_ciudad.csv
+568842db5a3964bdf2714a947311d127a9e35722593c2f12cba9b2ced58e74b2  tarifa_media_ciudad.png
+
+== Verificación de reproducibilidad ==
+IDENTICO  resumen_ciudad.csv
+IDENTICO  resumen_ciudad.parquet
+IDENTICO  tarifa_media_ciudad.png
+
+Reproducción exacta: 3 de 3 salidas coinciden.
+IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
+lab05-viajes:1.0   1f893697f054        687MB          161MB        
+IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
+lab05-viajes:1.0   1f893697f054        687MB          161MB        
+```
