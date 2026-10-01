@@ -131,3 +131,34 @@ Cali,7445,5.9,17.7,16250.58,14180.0,9101.52
 Medellin,9950,5.97,17.86,16396.02,14171.0,9218.13
 Pereira,2532,5.97,17.91,16402.67,14447.0,8934.61
 ```
+---
+
+## Parte 3 · Romper y diagnosticar
+
+### Experimento A · Cambiar la semilla
+
+**Evidencia:**
+
+```
+DIFIERE   resumen_ciudad.csv
+DIFIERE   resumen_ciudad.parquet
+DIFIERE   tarifa_media_ciudad.png
+
+Reproducción fallida: 0 de 3 salidas coinciden.
+```
+
+**Explicación:** Al cambiar la semilla de 20260917 a 20260918, el generador produce otra secuencia de números aleatorios. Los 50 000 viajes son distintos y por lo tanto las tres huellas (CSV, Parquet y PNG) cambian por completo. La semilla fija es lo que hace determinista la generación de datos.
+
+### Experimento B · Quitar la versión fijada de numpy
+
+**Evidencia:**
+
+```
+DIFIERE   resumen_ciudad.csv
+DIFIERE   resumen_ciudad.parquet
+DIFIERE   tarifa_media_ciudad.png
+
+Reproducción fallida: 0 de 3 salidas coinciden.
+```
+
+**Explicación:** Al cambiar numpy==2.1.3 por numpy>=2.1, pip instala la versión más reciente disponible en el momento de construir. Hoy podría coincidir con 2.1.3 y las huellas salir idénticas, pero eso no está garantizado: en unos meses pip podría instalar 2.5 y las huellas diferirían. La versión fijada con == es lo que hace la reproducibilidad independiente del tiempo.

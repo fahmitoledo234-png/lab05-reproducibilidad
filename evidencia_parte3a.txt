@@ -1,0 +1,5 @@
+DIFIERE   resumen_ciudad.csv
+DIFIERE   resumen_ciudad.parquet
+DIFIERE   tarifa_media_ciudad.png
+
+Reproducción fallida: 0 de 3 salidas coinciden.
